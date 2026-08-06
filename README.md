@@ -41,11 +41,9 @@ System Architecture:
 
 
 Example Interaction:
-
 User: "I'd like a burger with fries"
 
 System: "That's a Cheeseburger and Fries. Your total comes out to be $11.32. Would you like anything else today?"
-
 
 Future Improvements:
 - Cloud deployment
@@ -53,5 +51,14 @@ Future Improvements:
 - Order tracking 
 - Support of different quantities and modifications
 - Website ordering interface
-- Demo
 
+
+
+See the demo for a demonstration of the live voice interaction pipeline.
+
+The demo showcases a live voice interaction pipeline:
+
+Microphone audio capture.
+Whisper-large-v3 speech recognition.
+Llama 3 response generation.
+Text-to-speech playback.
