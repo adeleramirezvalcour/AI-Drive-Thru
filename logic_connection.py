@@ -199,34 +199,32 @@ Rules:
                 ]
             )
 
-            raw_args = (
-                tool_call.function.arguments
-            )
+            raw_args = tool_call.function.arguments
 
-            function_args = (
-                json.loads(raw_args)
-                if raw_args
-                else {}
-            )
+# If the tool has no arguments, Groq sends None
+            if raw_args is None:
+                function_args = {}
+        else:
+            function_args = json.loads(raw_args)
 
-            print(
-                f"\n[Tool Call] {function_name}"
-            )
+        print(
+            f"\n[Tool Call] {function_name}"
+        )
 
-            function_response = (
-                function_to_call(
-                    **function_args
-                )
+        function_response = (
+            function_to_call(
+                **function_args
             )
+        )
 
-            messages.append(
-                {
-                    "tool_call_id": tool_call.id,
-                    "role": "tool",
-                    "name": function_name,
-                    "content": function_response,
-                }
-            )
+        messages.append(
+            {
+                "tool_call_id": tool_call.id,
+                "role": "tool",
+                "name": function_name,
+                "content": json.dumps(function_response),
+            }
+        )
 
         second_response = (
             client.chat.completions.create(

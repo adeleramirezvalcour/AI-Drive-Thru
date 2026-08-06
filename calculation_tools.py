@@ -39,7 +39,7 @@ def calculate_order_total(item_names: list[str], tax_rate: float = 0.08) -> str:
         "total": round(total, 2),
     }
 
-    return json.dumps(result)
+    return result
 
 
 def get_menu() -> str:
@@ -47,7 +47,7 @@ def get_menu() -> str:
     Returns the current menu and prices.
     """
 
-    return json.dumps(PRICE_MENU)
+    return PRICE_MENU
 
 
 tools = [
