@@ -41,9 +41,11 @@ System Architecture:
 
 
 Example Interaction:
+
 User: "I'd like a burger with fries"
 
 System: "That's a Cheeseburger and Fries. Your total comes out to be $11.32. Would you like anything else today?"
+
 
 Future Improvements:
 - Cloud deployment
