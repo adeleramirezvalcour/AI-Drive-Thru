@@ -13,7 +13,6 @@ client = Groq(
     api_key=os.getenv("GROQ_API_KEY")
 )
 
-
 def record_audio(
     output_file: str = "customer_input.wav",
     duration: int = 5,
