@@ -53,7 +53,7 @@ def get_menu() -> str:
     Returns the current menu and prices.
     """
 
-    return PRICE_MENU
+    return json.dumps(PRICE_MENU)
 
 
 # Give Llama 3 a description of what it has access to and functions of each tool
