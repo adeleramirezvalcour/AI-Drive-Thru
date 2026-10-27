@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 
+# Bring in previously defined function
 from menu import retrieve_menu_context
 
 app = FastAPI()
