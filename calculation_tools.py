@@ -13,10 +13,7 @@ PRICE_MENU = {
 
 
 def calculate_order_total(item_names: list[str], tax_rate: float = 0.08) -> str:
-    """
-    Calculates subtotal, tax, and total for a customer order.
-    Returns a JSON string so the LLM can read the structured data.
-    """
+
     # Start with baseline subtotal and make empty sets for the found(Python found them on menu) and missing(Python did not find them on menu) items
     subtotal = 0.0
     found_items = []
@@ -49,9 +46,6 @@ def calculate_order_total(item_names: list[str], tax_rate: float = 0.08) -> str:
 
 
 def get_menu() -> str:
-    """
-    Returns the current menu and prices.
-    """
 
     return json.dumps(PRICE_MENU)
 

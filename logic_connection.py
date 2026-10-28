@@ -4,6 +4,7 @@ import json
 from dotenv import load_dotenv
 from groq import Groq
 
+# Bring in previously defined functions
 from recording_to_playback import (
     record_audio,
     transcribe_audio,
@@ -17,11 +18,14 @@ from calculation_tools import (
 
 from menu import retrieve_menu_context
 
+# Connect with API credentials
 load_dotenv()
 
 client = Groq(
     api_key=os.getenv("GROQ_API_KEY")
 )
+
+# Define a function that decides what the customer is asking
 
 
 def classify_intent(text):
@@ -58,6 +62,8 @@ def classify_intent(text):
 
     return "unknown"
 
+# Define a variable that outlines the blocked topics
+
 
 def validate_request(text):
 
@@ -75,6 +81,8 @@ def validate_request(text):
         topic in text
         for topic in blocked_topics
     )
+
+# Define function that integrates previously defined functions through whole customer facing system. This function includes communication with the LLM to define its goal.
 
 
 def run_drive_thru_turn():

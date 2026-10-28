@@ -7,30 +7,21 @@ import soundfile as sf
 import sounddevice as sd
 from pathlib import Path
 
+# Connect with API credentials
 load_dotenv()
 
 client = Groq(
     api_key=os.getenv("GROQ_API_KEY")
 )
 
+# Define the variable that records the audio input, defining paramaters optimal for ordering
+
+
 def record_audio(
     output_file: str = "customer_input.wav",
     duration: int = 5,
     sample_rate: int = 16000
 ):
-    """
-    Records audio from the microphone.
-
-    Args:
-        output_file:
-            Where the recording will be saved.
-
-        duration:
-            Recording length in seconds.
-
-        sample_rate:
-            Audio quality. 16000 is perfect for speech.
-    """
 
     print(f"\nRecording for {duration} seconds...")
 
@@ -51,12 +42,10 @@ def record_audio(
 
     print(f"Audio saved: {output_file}")
 
+# Define the function that sends the audio to Groq Whisper and returns the transcribed text
+
 
 def transcribe_audio(audio_path: str) -> str:
-    """
-    Sends audio to Groq Whisper and
-    returns the transcription text.
-    """
 
     with open(audio_path, "rb") as audio_file:
 
@@ -72,15 +61,13 @@ def transcribe_audio(audio_path: str) -> str:
 
     return transcription.text
 
+# Defines the function that converts the transcribed text into spoken audio and saves this output as an MP3 file
+
 
 def text_to_speech(
     text: str,
     output_file: str = "response.mp3"
 ):
-    """
-    Converts text into spoken audio.
-    Saves the result as an MP3 file.
-    """
 
     tts = gTTS(
         text=text,
@@ -91,30 +78,25 @@ def text_to_speech(
 
     print(f"Audio response saved: {output_file}")
 
+# Defines the function that plays the outputted MP3 file
+
 
 def play_audio(audio_file: str = "response.mp3"):
-    """
-    Plays the generated MP3 response.
-    """
 
     print("Playing response...")
 
     playsound(audio_file)
 
+# Define a function that brings together a few other previously defined function (for convienience)
+
 
 def speak(text: str):
-    """
-    Convenience function.
-
-    Generates speech and
-    immediately plays it.
-    """
-
     text_to_speech(text)
 
     play_audio("response.mp3")
 
 
+# Pipeline verification
 if __name__ == "__main__":
 
     record_audio(duration=5)
