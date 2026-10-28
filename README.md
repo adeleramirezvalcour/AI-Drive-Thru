@@ -1,6 +1,4 @@
-Voice AI Drive-Thru System
-
-An AI system that simulates a restaurant drive-thru experience using speech recognition, retrieval-augmented generation (RAG), intet classification, and LLM tool calling. This system uses Whisper hosted by Groq as well as Llama 3. 
+An AI system that simulates a restaurant drive-thru using speech recognition, retrieval-augmented generation (RAG), intet classification, and LLM tool calling. This system uses Whisper hosted by Groq as well as Llama 3. 
 
 Features:
 - Whisper Large v3
@@ -47,7 +45,7 @@ System: "That's a Cheeseburger and Fries. Your total comes out to be $11.32. Wou
 
 Future Improvements:
 - Cloud deployment
-- Multi-turn converstaion memory
+- Converstaion memory
 - Order tracking 
 - Support of different quantities and modifications
 - Website ordering interface
